@@ -48,7 +48,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <syslog.h>
 #ifdef TIME_WITH_SYS_TIME
 #include <time.h>
 #endif
@@ -59,6 +58,7 @@
 #include "mmc.h"
 #include "timers.h"
 #include "match.h"
+#include "_log.h"
 
 #ifndef SHUT_WR
 #define SHUT_WR 1
@@ -680,6 +680,7 @@ main( int argc, char** argv )
     stats_bytes = 0;
     stats_simultaneous = 0;
 
+#if 0
     /* If we're root, try to become someone else. */
     if ( getuid() == 0 )
 	{
@@ -714,6 +715,7 @@ main( int argc, char** argv )
 		LOG_WARNING,
 		"started as root without requesting chroot(), warning only" );
 	}
+#endif
 
     /* Initialize our connections table. */
     connects = NEW( connecttab, max_connects );

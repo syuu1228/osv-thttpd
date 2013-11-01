@@ -51,7 +51,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <syslog.h>
 #include <unistd.h>
 #include <stdarg.h>
 
@@ -78,6 +77,7 @@
 
 extern char* crypt( const char* key, const char* setting );
 
+#include "_log.h"
 #include "libhttpd.h"
 #include "mmc.h"
 #include "timers.h"

@@ -29,9 +29,9 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <syslog.h>
 
 #include "timers.h"
+#include "_log.h"
 
 
 #define HASH_SIZE 67

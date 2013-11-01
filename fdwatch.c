@@ -31,7 +31,6 @@
 #include <string.h>
 #include <sys/time.h>
 #include <sys/resource.h>
-#include <syslog.h>
 #include <fcntl.h>
 
 #ifndef MIN
@@ -57,6 +56,7 @@
 #include <sys/event.h>
 #endif /* HAVE_SYS_EVENT_H */
 
+#include "_log.h"
 #include "fdwatch.h"
 
 #ifdef HAVE_SELECT
@@ -167,7 +167,7 @@ fdwatch_get_nfiles( void )
 #endif /* RLIMIT_NOFILE */
 
     /* Figure out how many fd's we can have. */
-    nfiles = getdtablesize();
+//    nfiles = getdtablesize();
 #ifdef RLIMIT_NOFILE
     /* If we have getrlimit(), use that, and attempt to raise the limit. */
     if ( getrlimit( RLIMIT_NOFILE, &rl ) == 0 )
